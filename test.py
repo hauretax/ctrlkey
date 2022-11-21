@@ -211,9 +211,9 @@ if __name__ == "__main__":
 				keyboard.press("i")
 			elif xi.GetState(0)[1].TRX < -20000:
 				keyboard.press("j")
-			elif xi.GetState(0)[1].TRX < -20000:
+			elif xi.GetState(0)[1].TLY > 20000:
 				keyboard.press("y")
-			elif xi.GetState(0)[1].TRX < -20000:
+			elif xi.GetState(0)[1].TLY < -20000:
 				keyboard.press("z")
 			else:
 				keyboard.press("f")
