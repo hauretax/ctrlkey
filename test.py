@@ -21,7 +21,7 @@ import keyboard
 
 # keyboard.write("Python is an amazing programming language.")
 # keyboard.press_and_release("enter")
-# keyboard.press_and_release("shift+p")
+# keyboard.press_and_release("fn+p")
 # keyboard.press_and_release("y")
 # keyboard.press_and_release("t")
 # keyboard.press_and_release("h")
@@ -113,6 +113,24 @@ class XINPUT_STATE(Structure):
 	def __repr__(self):
 		return f"XINPUT_STATE(dwPacketNumber={self.dwPacketNumber}, Gamepad={self.Gamepad})"
 
+
+def writeCorrectInput(noFn, fn1, fn2):
+	if state[190] == 1:
+		keyboard.write(fn1)
+	elif state[192] == 1:
+		keyboard.write(fn2)
+	else:
+		keyboard.write(noFn)
+
+
+def PressCorrectInput(noFn, fn1, fn2):
+	if state[190] == 1:
+		keyboard.write(fn1)
+	elif state[192] == 1:
+		keyboard.write(fn2)
+	else:
+		keyboard.write(noFn)
+
 class XInput:
 	"""Minimal XInput API wrapper"""
 
@@ -154,101 +172,203 @@ if __name__ == "__main__":
 		sleep(0.001)
 
 
-
-
-
-
-	# SHIFT
-		if xi.GetState(0)[1].B.R_T and state[190] == 0:
-			keyboard.press("shift")
+	# fn1
+		if xi.GetState(0)[1].B.L_T and state[190] == 0:
+			#keyboard.press()
 			state[190] = 1
-		if xi.GetState(0)[1].B.R_T == 0 and state[190] == 1:
-			keyboard.release("shift")
+		if xi.GetState(0)[1].B.L_T == 0 and state[190] == 1:
+			#keyboard.release("fn")
 			state[190] = 0
+	# fn2
+		if xi.GetState(0)[1].B.R_T and state[192] == 0:
+			#keyboard.press("fn")
+			state[192] = 1
+		if xi.GetState(0)[1].B.R_T == 0 and state[192] == 1:
+			#keyboard.release("fn")
+			state[192] = 0
 	# DEL
-		if xi.GetState(0)[1].B.B and state[195] == 0:
-			keyboard.press("backspace")
-			state[195] = 1
-		if xi.GetState(0)[1].B.B == 0 and state[195] == 1:
-			state[195] = 0
-	# DEL
-		if xi.GetState(0)[1].B.A and state[191] == 0:
-			keyboard.press("space")
-			state[191] = 1
-		if xi.GetState(0)[1].B.A == 0 and state[191] == 1:
-			state[191] = 0
 
-	#  abcde uvwx
+	# DEL
+
+
+	#  on L1
 		if xi.GetState(0)[1].B.L_S and state[0] == 0:
+			#Right Top
 			if xi.GetState(0)[1].TRY > 20000:
-				keyboard.press("b")
+				writeCorrectInput("k","K","2")
+			#Right Bot
 			elif xi.GetState(0)[1].TRY < -20000:
-				keyboard.press("c")
+				writeCorrectInput("x","X","4")
+			#Right Right
 			elif xi.GetState(0)[1].TRX > 20000:
-				keyboard.press("d")
+				writeCorrectInput("y","y","3")
+			#Right Left
 			elif xi.GetState(0)[1].TRX < -20000:
-				keyboard.press("e")
+				writeCorrectInput("u","U","1")
+			#Left Up
 			elif xi.GetState(0)[1].TLY > 20000:
-				keyboard.press("u")
+				writeCorrectInput("(","",")")
+			#Left Down
 			elif xi.GetState(0)[1].TLY < -20000:
-				keyboard.press("v")
+				writeCorrectInput("@","","#")
+			#Left Right
 			elif xi.GetState(0)[1].TLX > 20000:
-				keyboard.press("w")
+				writeCorrectInput("<","",">")
+			#Left Left
 			elif xi.GetState(0)[1].TLX < -20000:
-				keyboard.press("x")
+				writeCorrectInput("l","L","")
+			#neutral
 			else:
-				keyboard.press("a")
+				writeCorrectInput("a","A","0")
 			state[0] = 1
 		if xi.GetState(0)[1].B.L_S == 0 and state[0] == 1:
 			state[0] = 0
-	# fghij yz
+	# on R1
 		if xi.GetState(0)[1].B.R_S and state[1] == 0:
+			#Right Top
 			if xi.GetState(0)[1].TRY > 20000:
-				keyboard.press("g")
+				writeCorrectInput("|","^","\\")
+			#Right Bot
 			elif xi.GetState(0)[1].TRY < -20000:
-				keyboard.press("h")
+				writeCorrectInput("'","%","\"")
+			#Right Right
 			elif xi.GetState(0)[1].TRX > 20000:
-				keyboard.press("i")
+				writeCorrectInput("z","Z","")
+			#Right Left
 			elif xi.GetState(0)[1].TRX < -20000:
-				keyboard.press("j")
+				writeCorrectInput("v","V","")
+			#Left Up
 			elif xi.GetState(0)[1].TLY > 20000:
-				keyboard.press("y")
+				writeCorrectInput("c","C","7")
+			#Left Down
 			elif xi.GetState(0)[1].TLY < -20000:
-				keyboard.press("z")
+				writeCorrectInput("m","M","9")
+			#Left Right
+			elif xi.GetState(0)[1].TLX > 20000:
+				writeCorrectInput("s","S","8")
+			#Left Left
+			elif xi.GetState(0)[1].TLX < -20000:
+				writeCorrectInput("g","G","6")
+			#neutral
 			else:
-				keyboard.press("f")
+				writeCorrectInput("d","D","5")
 			state[1] = 1
 		if xi.GetState(0)[1].B.R_S == 0 and state[1] == 1:
 			state[1] = 0
-	# klmno
+	# on R2
 		if xi.GetState(0)[1].RT > 100 and state[2] == 0:
+			#Right Top
 			if xi.GetState(0)[1].TRY > 20000:
-				keyboard.press("l")
+				writeCorrectInput(".","?","!")
+			#Right Bot
 			elif xi.GetState(0)[1].TRY < -20000:
-				keyboard.press("m")
+				writeCorrectInput(":",";","")
+			#Right Right
 			elif xi.GetState(0)[1].TRX > 20000:
-				keyboard.press("n")
+				writeCorrectInput(",","","")
+			#Right Left
 			elif xi.GetState(0)[1].TRX < -20000:
-				keyboard.press("o")
+				writeCorrectInput("r","R","")
+			#Left Up
+			elif xi.GetState(0)[1].TLY > 20000:
+				writeCorrectInput("b","B","")
+			#Left Down
+			elif xi.GetState(0)[1].TLY < -20000:
+				writeCorrectInput("j","J","")
+			#Left Right
+			elif xi.GetState(0)[1].TLX > 20000:
+				writeCorrectInput("o","O","")
+			#Left Left
+			elif xi.GetState(0)[1].TLX < -20000:
+				writeCorrectInput("f","F","")
+			#neutral
 			else:
-				keyboard.press("k")
+				writeCorrectInput("e","E","")
 			state[2] = 1
 		if xi.GetState(0)[1].RT == 0 and state[2] == 1:
 			state[2] = 0
-	# pqrst
+	# on L2
 		if xi.GetState(0)[1].LT > 100 and state[3] == 0:
+			#Right Top
 			if xi.GetState(0)[1].TRY > 20000:
-				keyboard.press("q")
+				writeCorrectInput("q","Q","-")
+			#Right Bot
 			elif xi.GetState(0)[1].TRY < -20000:
-				keyboard.press("r")
+				writeCorrectInput("n","N","*")
+			#Right Right
 			elif xi.GetState(0)[1].TRX > 20000:
-				keyboard.press("s")
+				writeCorrectInput("t","T","/")
+			#Right Left
 			elif xi.GetState(0)[1].TRX < -20000:
-				keyboard.press("t")
+				writeCorrectInput("h","H","+")
+			#Left Up
+			elif xi.GetState(0)[1].TLY > 20000:
+				writeCorrectInput("[","`","]")
+			#Left Down
+			elif xi.GetState(0)[1].TLY < -20000:
+				writeCorrectInput("=","","$")
+			#Left Right
+			elif xi.GetState(0)[1].TLX > 20000:
+				writeCorrectInput("{","-","}")
+			#Left Left
+			elif xi.GetState(0)[1].TLX < -20000:
+				writeCorrectInput("p","P","_")
+			#neutral
 			else:
-				keyboard.press("p")
+				writeCorrectInput("i","I","&")
 			state[3] = 1
 		if xi.GetState(0)[1].LT == 0 and state[3] == 1:
 			state[3] = 0
+
+	# on up
+		if xi.GetState(0)[1].B.P_U > 100 and state[4] == 0:
+			PressCorrectInput("up","","")
+			state[4] = 1
+		if xi.GetState(0)[1].B.P_U == 0 and state[4] == 1:
+			state[4] = 0
+	# on down
+		if xi.GetState(0)[1].B.P_D > 100 and state[5] == 0:
+			PressCorrectInput("down","","control")
+			state[5] = 1
+		if xi.GetState(0)[1].B.P_D == 0 and state[5] == 1:
+			state[5] = 0
+	# on right
+		if xi.GetState(0)[1].B.P_R > 100 and state[6] == 0:
+			PressCorrectInput("right","","home")
+			state[6] = 1
+		if xi.GetState(0)[1].B.P_R == 0 and state[6] == 1:
+			state[6] = 0
+	# on left
+		if xi.GetState(0)[1].B.P_L > 100 and state[7] == 0:
+			PressCorrectInput("left","","")
+			state[7] = 1
+		if xi.GetState(0)[1].B.P_L == 0 and state[7] == 1:
+			state[7] = 0
+
+
+	# on A
+		if xi.GetState(0)[1].B.A and state[191] == 0:
+			PressCorrectInput("space","return","tab")
+			state[191] = 1
+		if xi.GetState(0)[1].B.A == 0 and state[191] == 1:
+			state[191] = 0
+	# on B
+		if xi.GetState(0)[1].B.B and state[195] == 0:
+			PressCorrectInput("backspace","","delete")
+			state[195] = 1
+		if xi.GetState(0)[1].B.B == 0 and state[195] == 1:
+			state[195] = 0
+	# on X
+		if xi.GetState(0)[1].B.X > 100 and state[10] == 0:
+			PressCorrectInput("right option","","")
+			state[10] = 1
+		if xi.GetState(0)[1].B.X == 0 and state[10] == 1:
+			state[10] = 0
+	# on Y
+		if xi.GetState(0)[1].B.Y > 100 and state[11] == 0:
+		PressCorrectInput("escape","","")
+			state[11] = 1
+		if xi.GetState(0)[1].B.Y == 0 and state[11] == 1:
+			state[11] = 0
 
 
