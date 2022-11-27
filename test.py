@@ -366,7 +366,7 @@ if __name__ == "__main__":
 			state[10] = 0
 	# on Y
 		if xi.GetState(0)[1].B.Y > 100 and state[11] == 0:
-		PressCorrectInput("escape","","")
+			PressCorrectInput("escape","","")
 			state[11] = 1
 		if xi.GetState(0)[1].B.Y == 0 and state[11] == 1:
 			state[11] = 0
