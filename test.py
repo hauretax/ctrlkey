@@ -125,11 +125,17 @@ def writeCorrectInput(noFn, fn1, fn2):
 
 def PressCorrectInput(noFn, fn1, fn2):
 	if state[190] == 1:
-		keyboard.write(fn1)
+		if fn1 == "":
+			return
+		keyboard.press(fn1)
 	elif state[192] == 1:
-		keyboard.write(fn2)
+		if fn2 == "":
+			return
+		keyboard.press(fn2)
 	else:
-		keyboard.write(noFn)
+		if noFn == "":
+			return
+		keyboard.press(noFn)
 
 class XInput:
 	"""Minimal XInput API wrapper"""
@@ -205,18 +211,18 @@ if __name__ == "__main__":
 			#Right Left
 			elif xi.GetState(0)[1].TRX < -20000:
 				writeCorrectInput("u","U","1")
-			#Left Up
-			elif xi.GetState(0)[1].TLY > 20000:
-				writeCorrectInput("(","",")")
-			#Left Down
-			elif xi.GetState(0)[1].TLY < -20000:
-				writeCorrectInput("@","","#")
-			#Left Right
-			elif xi.GetState(0)[1].TLX > 20000:
-				writeCorrectInput("<","",">")
 			#Left Left
 			elif xi.GetState(0)[1].TLX < -20000:
 				writeCorrectInput("l","L","")
+			#Left Up
+			elif xi.GetState(0)[1].TLY > 20000:
+				writeCorrectInput("(","@",")")
+			#Left Down
+			elif xi.GetState(0)[1].TLY < -20000:
+				writeCorrectInput("w","W","#")
+			#Left Right
+			elif xi.GetState(0)[1].TLX > 20000:
+				writeCorrectInput("<","",">")
 			#neutral
 			else:
 				writeCorrectInput("a","A","0")
@@ -354,7 +360,7 @@ if __name__ == "__main__":
 			state[191] = 0
 	# on B
 		if xi.GetState(0)[1].B.B and state[195] == 0:
-			PressCorrectInput("backspace","","delete")
+			PressCorrectInput("backspace","delete","")
 			state[195] = 1
 		if xi.GetState(0)[1].B.B == 0 and state[195] == 1:
 			state[195] = 0
