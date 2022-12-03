@@ -327,25 +327,25 @@ if __name__ == "__main__":
 			state[3] = 0
 
 	# on up
-		if xi.GetState(0)[1].B.P_U > 100 and state[4] == 0:
+		if xi.GetState(0)[1].B.P_U  and state[4] == 0:
 			PressCorrectInput("up","","")
 			state[4] = 1
 		if xi.GetState(0)[1].B.P_U == 0 and state[4] == 1:
 			state[4] = 0
 	# on down
-		if xi.GetState(0)[1].B.P_D > 100 and state[5] == 0:
+		if xi.GetState(0)[1].B.P_D  and state[5] == 0:
 			PressCorrectInput("down","","control")
 			state[5] = 1
 		if xi.GetState(0)[1].B.P_D == 0 and state[5] == 1:
 			state[5] = 0
 	# on right
-		if xi.GetState(0)[1].B.P_R > 100 and state[6] == 0:
+		if xi.GetState(0)[1].B.P_R  and state[6] == 0:
 			PressCorrectInput("right","","home")
 			state[6] = 1
 		if xi.GetState(0)[1].B.P_R == 0 and state[6] == 1:
 			state[6] = 0
 	# on left
-		if xi.GetState(0)[1].B.P_L > 100 and state[7] == 0:
+		if xi.GetState(0)[1].B.P_L and state[7] == 0:
 			PressCorrectInput("left","","")
 			state[7] = 1
 		if xi.GetState(0)[1].B.P_L == 0 and state[7] == 1:
