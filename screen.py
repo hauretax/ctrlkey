@@ -14,6 +14,8 @@ class MyWidget(QtWidgets.QWidget):
         self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
         layout = QVBoxLayout()
         
+        self.text =QtWidgets.QLabel("yo")
+
         label = QLabel('label:')
         layout.addWidget(label)
 
@@ -30,7 +32,7 @@ class MyWidget(QtWidgets.QWidget):
 
 
         self.layout = QtWidgets.QVBoxLayout(self)
-        self.layout.addWidget(L1)
+        self.layout.addWidget(self.text)
         self.layout.addWidget(_L1)
         self.layout.addWidget(L2)
         self.layout.addWidget(_L2)
@@ -44,7 +46,10 @@ class MyWidget(QtWidgets.QWidget):
 
     @QtCore.Slot()
     def magic(self):
-        _L1.setText(random.choice(self.hello))
+        self.text.setText("a A 1")
+        # _L2.setText("i I %")
+        # _R1.setText("d D 5")
+        # _R2.setText("e E 8")
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
