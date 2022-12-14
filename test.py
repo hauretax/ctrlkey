@@ -212,18 +212,18 @@ if __name__ == "__main__":
 			print("L2: h H +   R2: r R     L1: u U 1   R1: v V  ", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLX < -20000:
-			print("L2: p P _   R2: f F     L1: <   >   R1: g G 6", end="     \r")
+			print("L2: p P _   R2: f F     L1: g G 6   R1: l L  ", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLY > 20000:
-			print("L2: [ ` ]   R2: b B     L1: l L     R1: c C 7", end="     \r")
+			print("L2: [ ` ]   R2: b B     L1: c C 7   R1: ( @ )", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLY < -20000:
-			print("L2: =   $   R2: j J     L1: ( @ )   R1: m M 9", end="     \r")
+			print("L2: =   $   R2: j J     L1: m M 9   R1: w W #", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLX > 20000:
-			print("L2: { - }   R2: o O     L1: w W #   R1: s S 8", end="     \r")
+			print("L2: { - }   R2: o O     L1: s S 8   R1: <   >", end="     \r")
 		else:
-			print("L2: i I &   R2: e E     L1: a A 0   R1: d D 5", end="     \r")
+			print("L2: i I &   R2: e E     L1: d D 5   R1: a A 0", end="     \r")
 	#  on L1
 		if xi.GetState(0)[1].B.L_S and state[0] == 0:
 			#Right Top
@@ -240,19 +240,19 @@ if __name__ == "__main__":
 				writeCorrectInput("u","U","1")
 			#Left Left
 			elif xi.GetState(0)[1].TLX < -20000:
-				writeCorrectInput("l","L","")
+				writeCorrectInput("c","C","6")
 			#Left Up
 			elif xi.GetState(0)[1].TLY > 20000:
-				writeCorrectInput("(","@",")")
+				writeCorrectInput("m","M","7")
 			#Left Down
 			elif xi.GetState(0)[1].TLY < -20000:
-				writeCorrectInput("w","W","#")
+				writeCorrectInput("s","S","9")
 			#Left Right
 			elif xi.GetState(0)[1].TLX > 20000:
-				writeCorrectInput("<","",">")
+				writeCorrectInput("g","G","8")
 			#neutral
 			else:
-				writeCorrectInput("a","A","0")
+				writeCorrectInput("d","D","5")
 			state[0] = 1
 		if xi.GetState(0)[1].B.L_S == 0 and state[0] == 1:
 			state[0] = 0
@@ -272,19 +272,19 @@ if __name__ == "__main__":
 				writeCorrectInput("v","V","")
 			#Left Up
 			elif xi.GetState(0)[1].TLY > 20000:
-				writeCorrectInput("c","C","7")
+				writeCorrectInput("l","L","")
 			#Left Down
 			elif xi.GetState(0)[1].TLY < -20000:
-				writeCorrectInput("m","M","9")
+				writeCorrectInput("(","@",")")
 			#Left Right
 			elif xi.GetState(0)[1].TLX > 20000:
-				writeCorrectInput("s","S","8")
+				writeCorrectInput("w","W","#")
 			#Left Left
 			elif xi.GetState(0)[1].TLX < -20000:
-				writeCorrectInput("g","G","6")
+				writeCorrectInput("<","",">")
 			#neutral
 			else:
-				writeCorrectInput("d","D","5")
+				writeCorrectInput("a","A","0")
 			state[1] = 1
 		if xi.GetState(0)[1].B.R_S == 0 and state[1] == 1:
 			state[1] = 0
