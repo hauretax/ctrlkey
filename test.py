@@ -200,30 +200,30 @@ if __name__ == "__main__":
 	# screen it
 	# 
 		if xi.GetState(0)[1].TRY > 20000:
-			print("L2: q Q -    R2: . ? !    L1: k K 2    R1: | ^ \\", end="     \r")
+			print("L2: q Q -   R2: . ? !   L1: k K 2    R1: | ^ \\", end="     \r")
 			# 
 		elif xi.GetState(0)[1].TRY < -20000:
-			print("L2: n N *    R2: : ;      L1: x X 4    R1: ' % \"", end="     \r")
+			print("L2: n N *   R2: : ;     L1: x X 4    R1: ' % \"", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TRX > 20000:
-			print("L2: t T /    R2: ,        L1: y Y 3   R1: z Z  ", end="     \r")
+			print("L2: t T /   R2: ,       L1: y Y 3   R1: z Z  ", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TRX < -20000:
-			print("L2: h H +    R2: r R      L1: u U 1   R1: v V  ", end="     \r")
+			print("L2: h H +   R2: r R     L1: u U 1   R1: v V  ", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLX < -20000:
-			print("L2: [ ` ]    R2: b B      L1: l L     R1: c C 7", end="     \r")
+			print("L2: p P _   R2: f F     L1: <   >   R1: g G 6", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLY > 20000:
-			print("L2: =   $    R2: j J      L1: ( @ )   R1: m M 9", end="     \r")
+			print("L2: [ ` ]   R2: b B     L1: l L     R1: c C 7", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLY < -20000:
-			print("L2: { - }    R2: o O      L1: w W #   R1: s S 8", end="     \r")
+			print("L2: =   $   R2: j J     L1: ( @ )   R1: m M 9", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLX > 20000:
-			print("L2: p P _    R2: f F      L1: <   >   R1: g G 6", end="     \r")
+			print("L2: { - }   R2: o O     L1: w W #   R1: s S 8", end="     \r")
 		else:
-			print("L2: i I &    R2: e E      L1: a A 0   R1: d D 5", end="     \r")
+			print("L2: i I &   R2: e E     L1: a A 0   R1: d D 5", end="     \r")
 	#  on L1
 		if xi.GetState(0)[1].B.L_S and state[0] == 0:
 			#Right Top
