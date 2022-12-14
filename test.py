@@ -212,16 +212,16 @@ if __name__ == "__main__":
 			print("L2: h H +   R2: r R     L1: u U 1   R1: v V  ", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLX < -20000:
-			print("L2: p P _   R2: f F     L1: g G 6   R1: l L  ", end="     \r")
+			print("L2: p P _   R2: f F     L1: c C 7   R1: <   >", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLY > 20000:
-			print("L2: [ ` ]   R2: b B     L1: c C 7   R1: ( @ )", end="     \r")
+			print("L2: [ ` ]   R2: b B     L1: m M 9   R1: l L  ", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLY < -20000:
-			print("L2: =   $   R2: j J     L1: m M 9   R1: w W #", end="     \r")
+			print("L2: =   $   R2: j J     L1: s S 8   R1: ( @ )", end="     \r")
 				# 
 		elif xi.GetState(0)[1].TLX > 20000:
-			print("L2: { - }   R2: o O     L1: s S 8   R1: <   >", end="     \r")
+			print("L2: { - }   R2: o O     L1: g G 6   R1: w W #", end="     \r")
 		else:
 			print("L2: i I &   R2: e E     L1: d D 5   R1: a A 0", end="     \r")
 	#  on L1

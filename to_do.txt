@@ -1,0 +1,1 @@
+ajouter un moyen de log des states du nombre de mouvement de joystick / nombre de validation
