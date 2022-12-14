@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
 	print("Reading all inputs from gamepad 0")
 	while True:
-		print(xi.GetState(0)[1], end="     \r")
+		# print(xi.GetState(0)[1], end="     \r")
 		sleep(0.001)
 
 
@@ -196,6 +196,32 @@ if __name__ == "__main__":
 
 	# DEL
 
+
+	# screen it
+	# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+			# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+				# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+				# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+				# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+				# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+				# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
+				# 
+		if xi.GetState(0)[1].TRY > 20000:
+			print("L2: q Q -    R2: . ? ! L1: k K 2    R1: | ^ \\", end="     \r")
 
 	#  on L1
 		if xi.GetState(0)[1].B.L_S and state[0] == 0:
